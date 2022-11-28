@@ -1,25 +1,61 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Registration Form</title>
-       
-    </head>
-    <body>
-        <div class="Registration-form">
-            <h1>Registration Form</h1>
-            <form method="POST" action="registration.php">
-                <p> Name</p>
-                <input type="text" name="txttenantname" placeholder="Enter your name">
-                <p>Username</p>
-                <input type="text" name="txtusername" placeholder="Enter Username">
-                <P>Phone Number</P>
-                <input type="text" name="txtphonenumber" placeholder="Enter Phonenumber">
-                <p>Email</p>
-                <input type="email" name="txtemail" placeholder="Enter Email">
-                <p>Password</p>
-                <input type="password" name="txtpassword" placeholder="Enter password">
-                <button type="submit">Register</button>
-            </form>
-        </div>
-    </body>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="../css/registration.css">
+	
+</head>
+<body>
+	<div class="hero">
+		<div class="form-box">
+			<div class="button-box">
+				<div id="btn"></div>
+				<button type="button" class="toggle-btn login-btn">Log in</button>
+
+				<button type="button" class="toggle-btn register-btn" >Register</button>
+				</div>
+				
+			
+			
+			<form method="POST" action="registration.php" id="login" class="input-group">
+				<input type="text" class="input-field"  placeholder="User email" required name="email">
+				<input type="password" class="input-field" placeholder="Enter password" required name="password">
+				<input type="checkbox" class="check-box"><span>Remember password</span>
+				<button type="submit" class="submit-btn">Log In</button>
+			</form>
+
+			<form  method="POST" action="registration.php" id="register" class="input-group">
+				<input type="text" class="input-field" placeholder="User name" required name="name">
+				<input type="email" class="input-field" placeholder="Input your Email" required name="email">
+			
+				<input type="password" class="input-field" placeholder="Enter password" required name="password">
+				<input type="checkbox" class="check-box">
+				<span>I agree to the Terms & conditions</span>
+				<button type="submit" class="submit-btn">Register</button>
+			</form>
+		</div>
+	</div>
+	<script>
+		const loginForm = document.getElementById("login");
+		const loginBtn = document.querySelector('.login-btn');
+		const registerForm = document.getElementById("register");
+		const registerBtn=document.querySelector('.register-btn');
+		const button = document.getElementById("btn");
+
+		loginBtn.addEventListener('click',()=>{
+			registerBtn.style="background:#fff;color:#7f45eb";
+			loginBtn.style="background:#7f45eb;color:#fff;border-radius: 30px;";
+			registerForm.style="display:none";
+			loginForm.style="display:block";
+		});
+
+		registerBtn.addEventListener('click',()=>{
+			registerBtn.style="background:#7f45eb;border-radius: 30px;color:#fff;";
+			loginBtn.style="background:#fff;color:#7f45eb";
+			registerForm.style="display:block";
+			loginForm.style="display:none";
+		});
+
+	</script>
+</body>
 </html>
